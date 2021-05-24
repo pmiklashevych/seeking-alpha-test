@@ -1,0 +1,14 @@
+.Cell {
+    width : 1em;
+    height : 1em;
+    border : 0.1em solid grey;
+    box-sizing: border-box;
+}
+
+.CellDead {
+    background-color: white;
+}
+
+.CellAlive {
+    background-color: black;
+}

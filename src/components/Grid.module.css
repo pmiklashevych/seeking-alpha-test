@@ -1,0 +1,19 @@
+.Grid {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    border : 0.1em solid grey;
+    box-sizing: border-box;
+}
+
+.Row {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+}
+
+.Button {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+}

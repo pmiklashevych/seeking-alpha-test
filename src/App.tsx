@@ -16,7 +16,6 @@ function App() {
             <header className="App-header">
                 <Grid width={5} height={5} initialData={cells} />
             </header>
-
         </div>
     );
 }

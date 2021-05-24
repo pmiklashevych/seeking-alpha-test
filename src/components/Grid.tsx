@@ -47,8 +47,8 @@ const Grid = ({width, height, initialData}: GridProps) => {
             timerId = requestAnimationFrame(loop);
 
             const
-                current = new Date().getTime(),
-                delta = current - start;
+                current = Date.now(),
+                delta   = current - start;
 
             // 400ms delay
             if (delta >= 400) {

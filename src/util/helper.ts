@@ -2,7 +2,7 @@ export const countAliveNeighbours = (data: number[][]): number[][] => {
     const
         height             = data.length,
         width              = data[0].length,
-        aliveNeighbours    = [...Array(height)].map(() => Array(width).fill(0)),
+        aliveNeighbours    = generateData(width, height, 0),
         // 1 1 1
         // 1 0 1 // offset from the middle position
         // 1 1 1
@@ -74,6 +74,22 @@ export const transformData = (data: number[][]): number[][] => {
                     row.push(0);
                 }
             }
+        }
+
+        grid.push(row);
+    }
+
+    return grid;
+}
+
+export const generateData = (width: number, height: number, initValue?: number): number[][] => {
+    const grid = [];
+
+    for (let i = 0; i < height; i++) {
+        const row = [];
+
+        for (let j = 0; j < width; j++) {
+            row.push(initValue ?? Math.round(Math.random()));
         }
 
         grid.push(row);

@@ -1,4 +1,26 @@
-import {transformData, countAliveNeighbours} from './helper';
+import {generateData, transformData, countAliveNeighbours} from './helper';
+
+test('generate data with 0 value', () => {
+    const output = [
+        [0, 0, 0, 0],
+        [0, 0, 0, 0],
+        [0, 0, 0, 0],
+        [0, 0, 0, 0]
+    ];
+
+    expect(generateData(4, 4, 0)).toEqual(output);
+});
+
+test('generate data with 1 value', () => {
+    const output = [
+        [1, 1, 1, 1],
+        [1, 1, 1, 1],
+        [1, 1, 1, 1],
+        [1, 1, 1, 1]
+    ];
+
+    expect(generateData(4, 4, 1)).toEqual(output);
+});
 
 test('data transformation: set 1', () => {
     const input = [

@@ -1,6 +1,6 @@
 import React, {useState, useCallback, useEffect} from "react";
 import Cell from "./Cell";
-import {transformData} from "../util/helper";
+import {generateData, transformData} from "../util/helper";
 
 import classes from './Grid.module.css';
 
@@ -9,22 +9,6 @@ type GridProps = {
     height: number,
     initialData?: number[][]
 };
-
-const generateData = (width: number, height: number): number[][] => {
-    const grid = [];
-
-    for (let i = 0; i < height; i++) {
-        const row = [];
-
-        for (let j = 0; j < width; j++) {
-            row.push(Math.round(Math.random()));
-        }
-
-        grid.push(row);
-    }
-
-    return grid;
-}
 
 const Grid = ({width, height, initialData}: GridProps) => {
     if (!initialData) {

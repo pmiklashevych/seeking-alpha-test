@@ -92,7 +92,9 @@ export const generateData = (width: number, height: number, initValue?: number):
             row.push(initValue ?? Math.round(Math.random()));
         }
 
-        grid.push(row);
+        if (row.length) {
+            grid.push(row);
+        }
     }
 
     return grid;

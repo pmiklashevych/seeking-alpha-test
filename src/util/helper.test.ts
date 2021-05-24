@@ -29,6 +29,16 @@ test('generate random data', () => {
     expect(result[0].length).toBe(4);
 });
 
+test('generate date with negative width should not fail', () => {
+    const result = generateData(-4, 4);
+    expect(result.length).toBe(0);
+});
+
+test('generate date with negative height should not fail', () => {
+    const result = generateData(4, -4);
+    expect(result.length).toBe(0);
+});
+
 test('transform data: set 1', () => {
     const input = [
         [0, 0, 0, 0],

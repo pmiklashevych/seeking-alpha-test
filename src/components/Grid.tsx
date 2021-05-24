@@ -38,8 +38,26 @@ const Grid = ({width, height, initialData}: GridProps) => {
     }, []);
 
     useEffect(() => {
-        // Start timer on mount
-        setInterval(nextTick, 400)
+        // Start timer on mount using requestAnimationFrame instead of setInterval
+        let start = Date.now(),
+            timerId = 0;
+
+        const loop = () => {
+            cancelAnimationFrame(timerId);
+            timerId = requestAnimationFrame(loop);
+
+            const
+                current = new Date().getTime(),
+                delta = current - start;
+
+            // 400ms delay
+            if (delta >= 400) {
+                nextTick();
+                start = Date.now();
+            }
+        }
+
+        timerId = requestAnimationFrame(loop);
     }, [nextTick]);
 
     const grid = (data.length && data[0].length) ? data.map(

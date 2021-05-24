@@ -29,7 +29,7 @@ test('generate random data', () => {
     expect(result[0].length).toBe(4);
 });
 
-test('data transformation: set 1', () => {
+test('transform data: set 1', () => {
     const input = [
         [0, 0, 0, 0],
         [0, 1, 1, 0],
@@ -55,7 +55,7 @@ test('data transformation: set 1', () => {
     expect(transformData(gen1)).toEqual(gen2);
 });
 
-test('data transformation: set 2', () => {
+test('transform data: set 2', () => {
     const input = [
         [0, 0, 0, 0, 0],
         [0, 0, 0, 0, 0],
@@ -84,7 +84,7 @@ test('data transformation: set 2', () => {
     expect(transformData(gen1)).toEqual(gen2);
 });
 
-test('data transformation: set 3', () => {
+test('transform data: set 3', () => {
     const input = [
         [0, 0, 0, 0, 0, 0],
         [0, 0, 0, 0, 0, 0],
@@ -116,7 +116,7 @@ test('data transformation: set 3', () => {
     expect(transformData(gen1)).toEqual(gen2);
 });
 
-test('data transformation: set 4', () => {
+test('transform data: set 4', () => {
     const input = [
         [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
         [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],

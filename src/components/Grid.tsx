@@ -68,8 +68,8 @@ const Grid = ({width, height, initialData}: GridProps) => {
     ) : null;
 
     return <>
-        <button className={classes.Button} onClick={nextTick}>Update</button>
-        {grid ? <div className={classes.Grid}>{grid}</div> : 'Enter correct grid dimension'}
+        <button onClick={nextTick}>Update</button>
+        {grid ? <div data-testid="grid-element" className={classes.Grid}>{grid}</div> : 'Enter correct grid dimension'}
     </>;
 }
 

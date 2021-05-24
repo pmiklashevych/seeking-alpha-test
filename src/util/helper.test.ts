@@ -22,6 +22,13 @@ test('generate data with 1 value', () => {
     expect(generateData(4, 4, 1)).toEqual(output);
 });
 
+test('generate random data', () => {
+    const result = generateData(4, 4);
+
+    expect(result.length).toBe(4);
+    expect(result[0].length).toBe(4);
+});
+
 test('data transformation: set 1', () => {
     const input = [
         [0, 0, 0, 0],

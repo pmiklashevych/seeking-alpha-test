@@ -1,15 +1,16 @@
 import classes from './Cell.module.css';
 
 type CellProps = {
-    alive: number
+    status: number
 };
 
-const Cell = ({alive}: CellProps) => {
+const Cell = ({ status }: CellProps) => {
     const cls = [classes.Cell];
 
-    if (alive) {
+    if (status) {
         cls.push(classes.CellAlive);
-    } else {
+    }
+    else {
         cls.push(classes.CellDead);
     }
 

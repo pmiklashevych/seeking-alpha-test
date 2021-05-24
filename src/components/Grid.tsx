@@ -1,6 +1,6 @@
-import React, {useState, useCallback, useEffect} from "react";
+import React, { useState, useCallback, useEffect } from "react";
 import Cell from "./Cell";
-import {generateData, transformData} from "../util/helper";
+import { generateData, transformData } from "../util/helper";
 
 import classes from './Grid.module.css';
 
@@ -10,7 +10,7 @@ type GridProps = {
     initialData?: number[][]
 };
 
-const Grid = ({width, height, initialData}: GridProps) => {
+const Grid = ({ width, height, initialData }: GridProps) => {
     if (!initialData) {
         initialData = generateData(width, height);
     }
@@ -23,7 +23,7 @@ const Grid = ({width, height, initialData}: GridProps) => {
 
     useEffect(() => {
         // Start timer on mount using requestAnimationFrame instead of setInterval
-        let start = Date.now(),
+        let start   = Date.now(),
             timerId = 0;
 
         const loop = () => {
@@ -46,7 +46,7 @@ const Grid = ({width, height, initialData}: GridProps) => {
 
     const grid = (data.length && data[0].length) ? data.map(
         (row, i) => {
-            const cells = row.map((cell, j) => <Cell key={j} alive={cell} />);
+            const cells = row.map((value, j) => <Cell key={j} status={value} />);
             return <div key={i} className={classes.Row}>{cells}</div>
         }
     ) : null;

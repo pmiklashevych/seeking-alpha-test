@@ -4,11 +4,16 @@ This is a small project built with React and TypeScript. The project solves the 
 Here is a short description of the files:
 
 - `src/components/Cell.tsx` is a represental component which shows dead or alive cells
+  
 - `src/component/Grid.tsx` is a stateful component which manages status ("dead" or "alive") of the cells per "tick"
+  
 - `src/component/Player.tsx` is a stateful component which decides when the grid should tick
+  
 - `App.tsx` is a component which shows a player with 50x50 grid with random initial state
+  
 - `src/util/helper.ts` is a helper which holds functions to generate/transform cell's statuses ("dead" or "alive")
   according to business requirements
+  
 - `src/util/helper.test.ts` is a set of tests to cover data generation and data transformation
 
 ## Getting started

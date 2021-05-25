@@ -26,7 +26,7 @@ and living cells using `<div>` or `<td>` with black background (we use 1).
 
 The initial configuration of living cells in this grid is arbitrary and should be random for every page refresh.
 
-Here’s a smaller 5x5 example:
+Here's a smaller 5x5 example:
 
 ```
 0 0 0 0 0

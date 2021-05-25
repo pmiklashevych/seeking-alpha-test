@@ -1,0 +1,21 @@
+.Player {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    padding: 10px;
+    box-sizing: border-box;
+    align-items: center;
+}
+
+.Toolbar {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.Toolbar button{
+    padding: 2px;
+    min-width: 50px;
+}

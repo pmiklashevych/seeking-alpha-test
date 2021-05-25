@@ -1,4 +1,4 @@
-import React, { useState, useCallback, useEffect } from "react";
+import React, { useState, useEffect, useMemo } from "react";
 import Cell from "./Cell";
 import { generateData, transformData } from "../util/helper";
 
@@ -7,54 +7,39 @@ import classes from './Grid.module.css';
 type GridProps = {
     width: number,
     height: number,
+    generation: number,
     initialData?: number[][]
 };
 
-const Grid = ({ width, height, initialData }: GridProps) => {
-    if (!initialData) {
-        initialData = generateData(width, height);
-    }
+const Grid = ({ width, height, generation, initialData }: GridProps) => {
+    const [data, setData] = useState(initialData || [[0]]);
 
-    const [data, setData] = useState(initialData);
-
-    const nextTick = useCallback(() => {
-        setData(prevData => transformData(prevData));
-    }, []);
-
+    // Update data for each generation
     useEffect(() => {
-        // Start timer on mount using requestAnimationFrame instead of setInterval
-        let start   = Date.now(),
-            timerId = 0;
+        if (generation > 0) {
+            setData(prevData => transformData(prevData));
+        }
+    }, [generation]);
 
-        const loop = () => {
-            cancelAnimationFrame(timerId);
-            timerId = requestAnimationFrame(loop);
+    // Init/reset data when generation is 0
+    useEffect(() => {
+        if (generation === 0) {
+            setData(generateData(width, height));
+        }
+    }, [generation, width, height]);
 
-            const
-                current = Date.now(),
-                delta   = current - start;
-
-            // 400ms delay
-            if (delta >= 400) {
-                nextTick();
-                start = Date.now();
+    const grid = useMemo(() => {
+        return (data.length && data[0].length) ? data.map(
+            (row, i) => {
+                const cells = row.map((value, j) => <Cell key={j} status={value} />);
+                return <div key={i} className={classes.Row}>{cells}</div>
             }
-        }
+        ) : null
+    }, [data]);
 
-        timerId = requestAnimationFrame(loop);
-    }, [nextTick]);
-
-    const grid = (data.length && data[0].length) ? data.map(
-        (row, i) => {
-            const cells = row.map((value, j) => <Cell key={j} status={value} />);
-            return <div key={i} className={classes.Row}>{cells}</div>
-        }
-    ) : null;
-
-    return <>
-        <button onClick={nextTick}>Update</button>
-        {grid ? <div data-testid="grid-element" className={classes.Grid}>{grid}</div> : 'Enter correct grid dimension'}
-    </>;
+    return grid
+        ? <div data-testid="grid-element" className={classes.Grid}>{grid}</div>
+        : <p>Provide correct grid dimension</p>;
 }
 
 export default Grid;

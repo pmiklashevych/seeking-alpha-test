@@ -1,12 +1,12 @@
 import React from 'react';
 import './App.css';
-import Grid from "./components/Grid";
+import Player from './components/Player';
 
 function App() {
     return (
         <div className="App">
             <header className="App-header">
-                <Grid width={50} height={50} />
+                <Player width={50} height={50} />
             </header>
         </div>
     );

@@ -1,4 +1,4 @@
-# Seeking Alpha React + TypeScript Test
+# Seeking Alpha (React + TypeScript)
 
 This is a small project built with React and TypeScript. The project solves the [problem](#the-problem) described below.
 Here is a short description of the files:
